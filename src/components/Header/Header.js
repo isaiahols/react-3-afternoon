@@ -9,11 +9,14 @@ import Search from './Search/Search';
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { searchPostsFn } = this.props;
     return (
       <section className="Header__parent">
         <section className="Header__content">
-
           {/* Displays the mountain icon in the header */}
           <div className="Header__company-info">
             <CompanyIcon id="Header__company-icon" />
@@ -22,16 +25,15 @@ export default class Header extends Component {
 
           {/* Displays the search bar */}
           <div className="Header__right">
-            <Search />
+            <Search searchPostsFn={searchPostsFn} />
 
             {/* Displays the profile icon */}
             <div className="Header__profile">
               <ProfileIcon />
             </div>
           </div>
-
         </section>
       </section>
-    )
+    );
   }
 }
